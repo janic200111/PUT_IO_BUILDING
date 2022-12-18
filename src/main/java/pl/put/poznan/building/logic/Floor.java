@@ -6,7 +6,7 @@ public class Floor {
     private int number;
     private List<Person> people;
     private String monthlyPowerUsage;
-    private String area;
+    private int area;
     private String department;
     private String administrator;
 
@@ -34,11 +34,11 @@ public class Floor {
         this.monthlyPowerUsage = monthlyPowerUsage;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 

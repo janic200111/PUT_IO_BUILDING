@@ -7,10 +7,18 @@ public class Building {
     private String location;
     private String height;
     private int numberOfFloors;
-    private String yearBuilt;
-    private String monthlyPowerUsage;
+    private int yearBuilt;
+    private int monthlyPowerUsage;
     private List<Floor> floors;
-
+    public int getSumAreaOfBuilding()
+    {
+        int sum = 0;
+        for(Floor fl: floors)
+        {
+            sum+= fl.getArea();
+        }
+        return sum;
+    }
     public String getName() {
         return name;
     }
@@ -43,19 +51,19 @@ public class Building {
         this.numberOfFloors = numberOfFloors;
     }
 
-    public String getYearBuilt() {
+    public int getYearBuilt() {
         return yearBuilt;
     }
 
-    public void setYearBuilt(String yearBuilt) {
+    public void setYearBuilt(int yearBuilt) {
         this.yearBuilt = yearBuilt;
     }
 
-    public String getMonthlyPowerUsage() {
+    public int getMonthlyPowerUsage() {
         return monthlyPowerUsage;
     }
 
-    public void setMonthlyPowerUsage(String monthlyPowerUsage) {
+    public void setMonthlyPowerUsage(int monthlyPowerUsage) {
         this.monthlyPowerUsage = monthlyPowerUsage;
     }
 
