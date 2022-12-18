@@ -151,36 +151,3 @@ public class Person {
   }
 }
 
-Building building = new Building();
-building.setName("Building A");
-building.setLocation("Warsaw");
-building.setHeight("100 meters");
-building.setNumberOfFloors(10);
-building.setYearBuilt("2010");
-building.setMonthlyPowerUsage("10000 kWh");
-
-Floor floor1 = new Floor();
-floor1.setNumber(1);
-
-Person person1 = new Person();
-person1.setName("John Smith");
-person1.setPosition("Manager");
-person1.setEmail("johnsmith@buildinga.com");
-
-Person person2 = new Person();
-person2.setName("Jane Doe");
-person2.setPosition("Assistant");
-person2.setEmail("janedoe@buildinga.com");
-
-floor1.setPeople(Arrays.asList(person1, person2));
-floor1.setMonthlyPowerUsage("1000 kWh");
-floor1.setArea("1000 square meters");
-floor1.setDepartment("Management");
-floor1.setAdministrator("John Smith");
-
-Floor floor2 = new Floor();
-floor2.setNumber(2);
-
-// Add people, power usage, area, department, and administrator to floor2 in the same way as floor1...
-
-building.setFloors(Arrays.asList(floor1, floor2));
