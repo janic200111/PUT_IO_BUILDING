@@ -10,6 +10,7 @@ public class Building {
     private int yearBuilt;
     private int monthlyPowerUsage;
     private List<Floor> floors;
+    private List<Floor>
     public int getSumAreaOfBuilding()
     {
         int sum = 0;
