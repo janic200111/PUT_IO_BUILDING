@@ -1,4 +1,7 @@
-public Building fromJson(JsonObject json) {
+package pl.put.poznan.building.logic;
+import org.json.JSONObject;
+
+public class BuildingfromJson(JsonObject json) {
   Building building = new Building();
   building.setName(json.get("name").getAsString());
   building.setLocation(json.get("location").getAsString());
