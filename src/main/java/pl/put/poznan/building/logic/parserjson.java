@@ -1,46 +1,58 @@
 package pl.put.poznan.building.logic;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class BuildingfromJson(JsonObject json) {
-  Building building = new Building();
-  building.setName(json.get("name").getAsString());
-  building.setLocation(json.get("location").getAsString());
-  building.setHeight(json.get("height").getAsString());
-  building.setNumberOfFloors(json.get("number_of_floors").getAsInt());
-  building.setYearBuilt(json.get("year_built").getAsString());
-  building.setMonthlyPowerUsage(json.get("monthly_power_usage").getAsString());
 
-  JsonArray floorsArray = json.get("floors").getAsJsonArray();
-  List<Floor> floors = new ArrayList<>();
 
-  for (JsonElement floorElement : floorsArray) {
-    JsonObject floorObject = floorElement.getAsJsonObject();
-    Floor floor = new Floor();
-    floor.setNumber(floorObject.get("number").getAsInt());
+class MainClass {
+  public static void main(String[] args)
+  {
 
-    JsonArray peopleArray = floorObject.get("people").getAsJsonArray();
-    List<Person> people = new ArrayList<>();
-
-    for (JsonElement personElement : peopleArray) {
-      JsonObject personObject = personElement.getAsJsonObject();
-      Person person = new Person();
-      person.setName(personObject.get("name").getAsString());
-      person.setPosition(personObject.get("position").getAsString());
-      person.setEmail(personObject.get("email").getAsString());
-      people.add(person);
-    }
-
-    floor.setPeople(people);
-    floor.setMonthlyPowerUsage(floorObject.get("monthly_power_usage").getAsString());
-    floor.setArea(floorObject.get("area").getAsString());
-    floor.setDepartment(floorObject.get("department").getAsString());
-    floor.setAdministrator(floorObject.get("administrator").getAsString());
-
-    floors.add(floor);
   }
 
-  building.setFloors(floors);
+  public Building fromJson(JSONObject json) {
+    Building building = new Building();
+    building.setName(json.get("name").toString());
+    building.setLocation(json.get("location").toString());
+    building.setHeight(json.get("height").toString());
+    building.setNumberOfFloors(json.getInt("number_of_floors"));
+    building.setYearBuilt(json.get("year_built").toString());
+    building.setMonthlyPowerUsage(json.get("monthly_power_usage").toString());
 
-  return building;
+    JSONArray floorsArray = json.getJSONArray("floors");
+    List<Floor> floors = new ArrayList<>();
+
+    for (Object floorElement : floorsArray) {
+      JSONObject floorObject = (JSONObject) floorElement;
+      Floor floor = new Floor();
+      floor.setNumber(floorObject.getInt("number"));
+
+      JSONArray peopleArray = floorObject.getJSONArray("people");
+      List<Person> people = new ArrayList<>();
+
+      for (Object personElement : peopleArray) {
+        JSONObject personObject = (JSONObject) personElement;
+        Person person = new Person();
+        person.setName(personObject.get("name").toString());
+        person.setPosition(personObject.get("position").toString());
+        person.setEmail(personObject.get("email").toString());
+        people.add(person);
+      }
+
+      floor.setPeople(people);
+      floor.setMonthlyPowerUsage(floorObject.get("monthly_power_usage").toString());
+      floor.setArea(floorObject.get("area").toString());
+      floor.setDepartment(floorObject.get("department").toString());
+      floor.setAdministrator(floorObject.get("administrator").toString());
+
+      floors.add(floor);
+    }
+
+    building.setFloors(floors);
+
+    return building;
+  }
 }
-Building building = fromJson(json);
