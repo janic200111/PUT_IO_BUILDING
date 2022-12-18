@@ -1,26 +1,46 @@
 package pl.put.poznan.building.logic;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
 
-class MainClass {
-  public static void main(String[] args)
+class ParseJson {
+  public static void main(String[] args) throws JSONException, IOException
   {
+    String filename = "src/main/java/pl/put/poznan/building/json buildings.json";
+    JSONObject dzejson = getJsonObj(filename);
+
+    JSONArray array = dzejson.getJSONArray("buildings");
+    List<Building> buildings = new ArrayList<>();
+
+    for (int i=0; i<array.length(); i++) buildings.add(fromJson(array.getJSONObject(i)));
+
+    System.out.println(buildings.get(0).getName());
 
   }
 
-  public Building fromJson(JSONObject json) {
+
+  public static JSONObject getJsonObj(String filename) throws JSONException, IOException {
+    String text = new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+    return new JSONObject(text);
+  }
+
+  public static Building fromJson(JSONObject json) {
     Building building = new Building();
-    building.setName(json.get("name").toString());
+    building.setName(json.getString("name"));
     building.setLocation(json.get("location").toString());
     building.setHeight(json.get("height").toString());
     building.setNumberOfFloors(json.getInt("number_of_floors"));
-    building.setYearBuilt(json.get("year_built").toString());
-    building.setMonthlyPowerUsage(json.get("monthly_power_usage").toString());
+    building.setYearBuilt(json.getInt("year_built"));
+    building.setMonthlyPowerUsage(json.getInt("monthly_power_usage"));
 
     JSONArray floorsArray = json.getJSONArray("floors");
     List<Floor> floors = new ArrayList<>();
@@ -44,7 +64,7 @@ class MainClass {
 
       floor.setPeople(people);
       floor.setMonthlyPowerUsage(floorObject.get("monthly_power_usage").toString());
-      floor.setArea(floorObject.get("area").toString());
+      floor.setArea(floorObject.getInt("area"));
       floor.setDepartment(floorObject.get("department").toString());
       floor.setAdministrator(floorObject.get("administrator").toString());
 
@@ -56,3 +76,7 @@ class MainClass {
     return building;
   }
 }
+
+
+
+
