@@ -17,4 +17,5 @@ Dla administratorów budynków, którzy pragną optymalizować koszty zarządzan
    o light – łączna moc oświetlenia
 "
 
-
+![example workflow](https://github.com/janic200111/PUT_IO_BUILDING/actions/workflows/status
+/badge.svg)
