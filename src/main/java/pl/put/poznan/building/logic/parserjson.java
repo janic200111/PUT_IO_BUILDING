@@ -24,7 +24,6 @@ class ParseJson {
     for (int i=0; i<array.length(); i++) buildings.add(fromJson(array.getJSONObject(i)));
 
     System.out.println(buildings.get(0).getName());
-
   }
 
 
