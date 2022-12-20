@@ -1,0 +1,244 @@
+{
+   "buildings":[
+      {
+         "name":"Building A",
+         "location":"Warsaw",
+         "height":"100",
+         "number_of_floors":10,
+         "year_built":"2010",
+         "monthly_power_usage":"10000",
+         "floors":[
+            {
+               "number":1,
+               "people":[
+                  {
+                     "name":"John Smith",
+                     "position":"Manager",
+                     "email":"johnsmith@buildinga.com"
+                  },
+                  {
+                     "name":"Jane Doe",
+                     "position":"Assistant",
+                     "email":"janedoe@buildinga.com"
+                  }
+               ],
+               "monthly_power_usage":"1000",
+               "area":"1000",
+               "department":"Management",
+               "administrator":"John Smith"
+            },
+            {
+               "number":2,
+               "people":[
+                  {
+                     "name":"Bob Johnson",
+                     "position":"Engineer",
+                     "email":"bobjohnson@buildinga.com"
+                  },
+                  {
+                     "name":"Samantha Williams",
+                     "position":"Engineer",
+                     "email":"samanthawilliams@buildinga.com"
+                  }
+               ],
+               "monthly_power_usage":"1000",
+               "area":"1000",
+               "department":"Engineering",
+               "administrator":"Bob Johnson"
+            }
+         ]
+      },
+      {
+         "name":"Building B",
+         "location":"Krakow",
+         "height":"120",
+         "number_of_floors":12,
+         "year_built":"2012",
+         "monthly_power_usage":"12000",
+         "floors":[
+            {
+               "number":1,
+               "people":[
+                  {
+                     "name":"Chris Johnson",
+                     "position":"Manager",
+                     "email":"chrisjohnson@buildingb.com"
+                  },
+                  {
+                     "name":"Emily Williams",
+                     "position":"Assistant",
+                     "email":"emilywilliams@buildingb.com"
+                  }
+               ],
+               "monthly_power_usage":"1200",
+               "area":"1200",
+               "department":"Management",
+               "administrator":"Chris Johnson"
+            },
+            {
+               "number":2,
+               "people":[
+                  {
+                     "name":"Michael Brown",
+                     "position":"Engineer",
+                     "email":"michaelbrown@buildingb.com"
+                  },
+                  {
+                     "name":"Sara Smith",
+                     "position":"Engineer",
+                     "email":"sarasmith@buildingb.com"
+                  }
+               ],
+               "monthly_power_usage":"1200",
+               "area":"1200",
+               "department":"Engineering",
+               "administrator":"Michael Brown"
+            }
+         ]
+      },
+      {
+         "name":"Building C",
+         "location":"Lodz",
+         "height":"90",
+         "number_of_floors":9,
+         "year_built":"2009",
+         "monthly_power_usage":"9000",
+         "floors":[
+            {
+               "number":1,
+               "people":[
+                  {
+                     "name":"David Smith",
+                     "position":"Manager",
+                     "email":"davidsmith@buildingc.com"
+                  },
+                  {
+                     "name":"Jessica Doe",
+                     "position":"Assistant",
+                     "email":"jessicadoe@buildingc.com"
+                  }
+               ],
+               "monthly_power_usage":"900",
+               "area":"900",
+               "department":"Management",
+               "administrator":"David Smith"
+            },
+            {
+               "number":2,
+               "people":[
+                  {
+                     "name":"Robert Johnson",
+                     "position":"Engineer",
+                     "email":"robertjohnson@buildingc.com"
+                  },
+                  {
+                     "name":"Ashley Williams",
+                     "position":"Engineer",
+                     "email":"ashleywilliams@buildingc.com"
+                  }
+               ],
+               "monthly_power_usage":"900",
+               "area":"900",
+               "department":"Engineering",
+               "administrator":"Robert Johnson"
+            }
+         ]
+      },
+      {
+         "name":"Building D",
+         "location":"Poznan",
+         "height":"110",
+         "number_of_floors":11,
+         "year_built":"2011",
+         "monthly_power_usage":"11000",
+         "floors":[
+            {
+               "number":1,
+               "people":[
+                  {
+                     "name":"Mark Smith",
+                     "position":"Manager",
+                     "email":"marksmith@buildingd.com"
+                  },
+                  {
+                     "name":"Lisa Doe",
+                     "position":"Assistant",
+                     "email":"lisadoe@buildingd.com"
+                  }
+               ],
+               "monthly_power_usage":"1100",
+               "area":"1100",
+               "department":"Management",
+               "administrator":"Mark Smith"
+            },
+            {
+               "number":2,
+               "people":[
+                  {
+                     "name":"James Johnson",
+                     "position":"Engineer",
+                     "email":"jamesjohnson@buildingd.com"
+                  },
+                  {
+                     "name":"Stephanie Williams",
+                     "position":"Engineer",
+                     "email":"stephaniewilliams@buildingd.com"
+                  }
+               ],
+               "monthly_power_usage":"1100",
+               "area":"1100",
+               "department":"Engineering",
+               "administrator":"James Johnson"
+            }
+         ]
+      },
+      {
+         "name":"Building E",
+         "location":"Gdansk",
+         "height":"130",
+         "number_of_floors":13,
+         "year_built":"2013",
+         "monthly_power_usage":"13000",
+         "floors":[
+            {
+               "number":1,
+               "people":[
+                  {
+                     "name":"George Smith",
+                     "position":"Manager",
+                     "email":"georgesmith@buildinge.com"
+                  },
+                  {
+                     "name":"Laura Doe",
+                     "position":"Assistant",
+                     "email":"lauradoe@buildinge.com"
+                  }
+               ],
+               "monthly_power_usage":"1300",
+               "area":"1300",
+               "department":"Management",
+               "administrator":"George Smith"
+            },
+            {
+               "number":2,
+               "people":[
+                  {
+                     "name":"William Johnson",
+                     "position":"Engineer",
+                     "email":"williamjohnson@buildinge.com"
+                  },
+                  {
+                     "name":"Emily Williams",
+                     "position":"Engineer",
+                     "email":"emilywilliams@buildinge.com"
+                  }
+               ],
+               "monthly_power_usage":"1300",
+               "area":"1300",
+               "department":"Engineering",
+               "administrator":"William Johnson"
+            }
+         ]
+      }
+   ]
+}
