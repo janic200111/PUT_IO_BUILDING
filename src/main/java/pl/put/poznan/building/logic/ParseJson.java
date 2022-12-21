@@ -12,20 +12,19 @@ import org.json.JSONObject;
 
 
 
-class ParseJson {
-  public static void main(String[] args) throws JSONException, IOException
-  {
+public class ParseJson {
+
+  public static List<Building> getJson() throws JSONException, IOException{
     String filename = "src/main/java/pl/put/poznan/building/json buildings.json";
     JSONObject dzejson = getJsonObj(filename);
 
     JSONArray array = dzejson.getJSONArray("buildings");
     List<Building> buildings = new ArrayList<>();
 
-    for (int i=0; i<array.length(); i++) buildings.add(fromJson(array.getJSONObject(i)));
+    for (int i=0; i<array.length(); i++) buildings.add(ParseJson.fromJson(array.getJSONObject(i)));
 
-    System.out.println(buildings.get(0).getName());
+    return buildings;
   }
-
 
   public static JSONObject getJsonObj(String filename) throws JSONException, IOException {
     String text = new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
