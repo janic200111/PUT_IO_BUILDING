@@ -1,28 +1,23 @@
 package pl.put.poznan.building.logic;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
 public class ParseJson {
-
-  public static List<Building> getJson() throws JSONException, IOException{
+  public static List<Building> getJson() throws JSONException, IOException {
     String filename = "src/main/java/pl/put/poznan/building/json buildings.json";
     JSONObject dzejson = getJsonObj(filename);
-
     JSONArray array = dzejson.getJSONArray("buildings");
     List<Building> buildings = new ArrayList<>();
-
-    for (int i=0; i<array.length(); i++) buildings.add(ParseJson.fromJson(array.getJSONObject(i)));
-
+    for (int i = 0; i < array.length(); i++)
+      buildings.add(ParseJson.fromJson(array.getJSONObject(i)));
     return buildings;
   }
 
@@ -35,46 +30,34 @@ public class ParseJson {
     Building building = new Building();
     building.setName(json.getString("name"));
     building.setLocation(json.get("location").toString());
-    building.setHeight(json.get("height").toString());
     building.setNumberOfFloors(json.getInt("number_of_floors"));
     building.setYearBuilt(json.getInt("year_built"));
-    building.setMonthlyPowerUsage(json.getInt("monthly_power_usage"));
-
     JSONArray floorsArray = json.getJSONArray("floors");
     List<Floor> floors = new ArrayList<>();
-
     for (Object floorElement : floorsArray) {
       JSONObject floorObject = (JSONObject) floorElement;
       Floor floor = new Floor();
       floor.setNumber(floorObject.getInt("number"));
 
-      JSONArray peopleArray = floorObject.getJSONArray("people");
-      List<Person> people = new ArrayList<>();
+      JSONArray peopleArray = floorObject.getJSONArray("rooms");
+      List<Room> rooms = new ArrayList<>();
 
       for (Object personElement : peopleArray) {
         JSONObject personObject = (JSONObject) personElement;
-        Person person = new Person();
-        person.setName(personObject.get("name").toString());
-        person.setPosition(personObject.get("position").toString());
-        person.setEmail(personObject.get("email").toString());
-        people.add(person);
+        Room room = new Room();
+        room.setNumber(personObject.get("number").toString());
+        room.setArea(personObject.get("area").toString());
+        room.setCube(personObject.get("cube").toString());
+        room.setHeating(personObject.get("heating").toString());
+        room.setLight(personObject.get("light").toString());
+        rooms.add(room);
       }
 
-      floor.setPeople(people);
-      floor.setMonthlyPowerUsage(floorObject.get("monthly_power_usage").toString());
-      floor.setArea(floorObject.getInt("area"));
-      floor.setDepartment(floorObject.get("department").toString());
-      floor.setAdministrator(floorObject.get("administrator").toString());
-
+      floor.addRooms(rooms);
       floors.add(floor);
     }
 
     building.setFloors(floors);
-
     return building;
   }
 }
-
-
-
-

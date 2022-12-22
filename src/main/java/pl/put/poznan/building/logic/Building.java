@@ -2,7 +2,7 @@ package pl.put.poznan.building.logic;
 
 import java.util.List;
 
-public class Building {
+public class Building implements BuildingComponent {
     private String name;
     private String location;
     private String height;
@@ -10,15 +10,7 @@ public class Building {
     private int yearBuilt;
     private int monthlyPowerUsage;
     private List<Floor> floors;
-    public int getSumAreaOfBuilding()
-    {
-        int sum = 0;
-        for(Floor fl: floors)
-        {
-            sum+= fl.getArea();
-        }
-        return sum;
-    }
+
     public String getName() {
         return name;
     }
@@ -33,14 +25,6 @@ public class Building {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
     }
 
     public int getNumberOfFloors() {
@@ -59,19 +43,47 @@ public class Building {
         this.yearBuilt = yearBuilt;
     }
 
-    public int getMonthlyPowerUsage() {
-        return monthlyPowerUsage;
-    }
-
-    public void setMonthlyPowerUsage(int monthlyPowerUsage) {
-        this.monthlyPowerUsage = monthlyPowerUsage;
-    }
-
     public List<Floor> getFloors() {
         return floors;
     }
 
     public void setFloors(List<Floor> floors) {
         this.floors = floors;
+    }
+
+    @Override
+    public double calculateArea() {
+        double ret = 0.0;
+        for (int i = 0; i < this.floors.size(); i++) {
+            ret += this.floors.get(i).calculateArea();
+        }
+        return ret;
+    }
+
+    @Override
+    public double calculateVolume() {
+        double ret = 0.0;
+        for (int i = 0; i < this.floors.size(); i++) {
+            ret += this.floors.get(i).calculateVolume();
+        }
+        return ret;
+    }
+
+    @Override
+    public double calculateHeating() {
+        double ret = 0.0;
+        for (int i = 0; i < this.floors.size(); i++) {
+            ret += this.floors.get(i).calculateHeating();
+        }
+        return ret;
+    }
+
+    @Override
+    public double calculateLight() {
+        double ret = 0.0;
+        for (int i = 0; i < this.floors.size(); i++) {
+            ret += this.floors.get(i).calculateLight();
+        }
+        return ret;
     }
 }

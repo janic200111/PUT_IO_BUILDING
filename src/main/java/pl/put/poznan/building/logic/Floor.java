@@ -2,13 +2,9 @@ package pl.put.poznan.building.logic;
 
 import java.util.List;
 
-public class Floor {
+public class Floor implements BuildingComponent {
     private int number;
-    private List<Person> people;
-    private String monthlyPowerUsage;
-    private int area;
-    private String department;
-    private String administrator;
+    private List<Room> rooms;
 
     public int getNumber() {
         return number;
@@ -18,43 +14,44 @@ public class Floor {
         this.number = number;
     }
 
-    public List<Person> getPeople() {
-        return people;
+    public void addRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 
-    public void setPeople(List<Person> people) {
-        this.people = people;
+    @Override
+    public double calculateArea() {
+        double ret = 5.0;
+        for (int i = 0; i < rooms.size(); i++) {
+            ret += rooms.get(i).calculateArea();
+        }
+        return ret;
     }
 
-    public String getMonthlyPowerUsage() {
-        return monthlyPowerUsage;
+    @Override
+    public double calculateVolume() {
+        double ret = 0.0;
+        for (int i = 0; i < rooms.size(); i++) {
+            ret += rooms.get(i).calculateVolume();
+        }
+        return ret;
     }
 
-    public void setMonthlyPowerUsage(String monthlyPowerUsage) {
-        this.monthlyPowerUsage = monthlyPowerUsage;
+    @Override
+    public double calculateHeating() {
+        double ret = 0.0;
+        for (int i = 0; i < rooms.size(); i++) {
+            ret += rooms.get(i).calculateHeating();
+        }
+        return ret;
     }
 
-    public int getArea() {
-        return area;
+    @Override
+    public double calculateLight() {
+        double ret = 0.0;
+        for (int i = 0; i < rooms.size(); i++) {
+            ret += rooms.get(i).calculateLight();
+        }
+        return ret;
     }
 
-    public void setArea(int area) {
-        this.area = area;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getAdministrator() {
-        return administrator;
-    }
-
-    public void setAdministrator(String administrator) {
-        this.administrator = administrator;
-    }
 }
