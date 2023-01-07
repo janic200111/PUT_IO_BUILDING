@@ -2,9 +2,10 @@ package pl.put.poznan.building.logic;
 
 import java.util.List;
 
-public class Floor implements BuildingComponent {
+public class Floor implements BuildingComponent{
     private int number;
     private List<Room> rooms;
+
 
     public int getNumber() {
         return number;
@@ -18,10 +19,18 @@ public class Floor implements BuildingComponent {
         this.rooms = rooms;
     }
 
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public int getNumberOfRooms() {
+        return this.rooms.size();
+    }
+
     @Override
     public double calculateArea() {
-        double ret = 5.0;
-        for (int i = 0; i < rooms.size(); i++) {
+        double ret = 0.0;
+        for (int i=0; i<rooms.size(); i++) {
             ret += rooms.get(i).calculateArea();
         }
         return ret;
@@ -30,7 +39,7 @@ public class Floor implements BuildingComponent {
     @Override
     public double calculateVolume() {
         double ret = 0.0;
-        for (int i = 0; i < rooms.size(); i++) {
+        for (int i=0; i<rooms.size(); i++) {
             ret += rooms.get(i).calculateVolume();
         }
         return ret;
@@ -39,7 +48,7 @@ public class Floor implements BuildingComponent {
     @Override
     public double calculateHeating() {
         double ret = 0.0;
-        for (int i = 0; i < rooms.size(); i++) {
+        for (int i=0; i<rooms.size(); i++) {
             ret += rooms.get(i).calculateHeating();
         }
         return ret;
@@ -48,7 +57,7 @@ public class Floor implements BuildingComponent {
     @Override
     public double calculateLight() {
         double ret = 0.0;
-        for (int i = 0; i < rooms.size(); i++) {
+        for (int i=0; i<rooms.size(); i++) {
             ret += rooms.get(i).calculateLight();
         }
         return ret;
