@@ -5,10 +5,8 @@ import java.util.List;
 public class Building implements BuildingComponent {
     private String name;
     private String location;
-    private String height;
     private int numberOfFloors;
     private int yearBuilt;
-    private int monthlyPowerUsage;
     private List<Floor> floors;
 
     public String getName() {
