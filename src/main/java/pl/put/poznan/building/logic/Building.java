@@ -84,4 +84,24 @@ public class Building implements BuildingComponent {
         }
         return ret;
     }
+
+    public List<List<List<Integer>>> overusageOfHeating(double limit) {
+
+        List<List<List<Integer>>> building = null;
+        List<List<Integer>> level = null;
+        List<Integer> rooms = null;
+        List<Integer> levelNr = null;
+
+        for (int i = 0; i < this.floors.size(); i++) {
+            levelNr.clear();
+            levelNr.add(i);
+            level.add(levelNr);
+            rooms = this.floors.get(i).getRoomsOverHeatingLimit(limit);
+            level.add(rooms);
+            building.add(level);
+        }
+
+        return building;
+
+    }
 }

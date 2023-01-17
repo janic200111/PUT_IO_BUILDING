@@ -63,4 +63,18 @@ public class Floor implements BuildingComponent{
         return ret;
     }
 
+    public List<Integer> getRoomsOverHeatingLimit(double limit){
+
+        List<Integer> rooms = null;
+
+        for (int i=0; i<rooms.size(); i++) {
+            if(this.rooms.get(i).calculateHeating() > limit){
+                rooms.add(i);
+            }
+        }
+
+        return rooms;
+
+    }
+
 }
