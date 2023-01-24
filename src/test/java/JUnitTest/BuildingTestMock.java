@@ -36,4 +36,87 @@ public class BuildingTestMock {
         
         assertEquals(expected, result);
     }
+
+    @Test
+    public void testCalculateVolume() {
+        List<Floor> mockObjects = new ArrayList<Floor>();
+    
+        Random rand = new Random();
+        double rangeMin = 30.0, rangeMax = 300.0;
+        double expected = 0.0;
+        int numberOfSamples = 10;
+        
+        for (int i=0; i<numberOfSamples; i++) {
+            mockObjects.add(mock(Floor.class));
+
+            double randomValue = rangeMin + (rangeMax - rangeMin) * rand.nextDouble();
+            when(mockObjects.get(i).calculateVolume()).thenReturn(randomValue);
+            expected += randomValue;
+        }
+        
+    
+        Building testedObject = new Building();
+        testedObject.setFloors(mockObjects);
+        double result = testedObject.calculateVolume();
+    
+        for (int i=0; i<numberOfSamples; i++) verify(mockObjects.get(i)).calculateVolume();
+        
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void testCalculateHeating() {
+        List<Floor> mockObjects = new ArrayList<Floor>();
+    
+        Random rand = new Random();
+        double rangeMin = 30.0, rangeMax = 300.0;
+        double expected = 0.0;
+        int numberOfSamples = 10;
+        
+        for (int i=0; i<numberOfSamples; i++) {
+            mockObjects.add(mock(Floor.class));
+
+            double randomValue = rangeMin + (rangeMax - rangeMin) * rand.nextDouble();
+            when(mockObjects.get(i).calculateHeating()).thenReturn(randomValue);
+            expected += randomValue;
+        }
+        
+    
+        Building testedObject = new Building();
+        testedObject.setFloors(mockObjects);
+        double result = testedObject.calculateHeating();
+    
+        for (int i=0; i<numberOfSamples; i++) verify(mockObjects.get(i)).calculateHeating();
+        
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void testCalculateLight() {
+        List<Floor> mockObjects = new ArrayList<Floor>();
+    
+        Random rand = new Random();
+        double rangeMin = 30.0, rangeMax = 300.0;
+        double expected = 0.0;
+        int numberOfSamples = 10;
+        
+        for (int i=0; i<numberOfSamples; i++) {
+            mockObjects.add(mock(Floor.class));
+
+            double randomValue = rangeMin + (rangeMax - rangeMin) * rand.nextDouble();
+            when(mockObjects.get(i).calculateLight()).thenReturn(randomValue);
+            expected += randomValue;
+        }
+        
+    
+        Building testedObject = new Building();
+        testedObject.setFloors(mockObjects);
+        double result = testedObject.calculateLight();
+    
+        for (int i=0; i<numberOfSamples; i++) verify(mockObjects.get(i)).calculateLight();
+        
+        assertEquals(expected, result);
+    }
 }
