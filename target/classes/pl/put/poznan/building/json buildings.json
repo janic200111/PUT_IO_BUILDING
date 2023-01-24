@@ -1,0 +1,63 @@
+{
+   "buildings":[
+      {
+         "name": "Building A",
+         "location":"Warsaw",
+         "number_of_floors": 2,
+         "year_built":"2010",
+         "floors": [
+            {
+               "number":1,
+               "rooms": [
+                  {
+                     "number": 1,
+                     "area": "30.0",
+                     "cube": "75.0",
+                     "heating": "1550.95",
+                     "light": "2000.0"
+                  },
+                  {
+                     "number": 2,
+                     "area": "40.0",
+                     "cube": "5.0",
+                     "heating": "150.95",
+                     "light": "100.0"
+                  }
+               ]
+            },
+            {
+               "number" : 2,
+               "rooms" : [
+                  {
+                     "number": 1,
+                     "area": "40.0",
+                     "cube": "85.0",
+                     "heating": "550.95",
+                     "light": "200.0"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "name": "Building B",
+         "location" : "Poznan",
+         "number_of_floors": 1,
+         "year_built":"2015",
+         "floors": [
+            {
+               "number": 1,
+               "rooms": [
+                  {
+                     "number": 1,
+                     "area": "30.0",
+                     "cube": "75.0",
+                     "heating": "1550.95",
+                     "light": "2000.0"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
