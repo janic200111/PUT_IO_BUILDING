@@ -1,13 +1,5 @@
-Klasa Building reprezentuje budynek w programie Java. Posiada kilka atrybutów:
- name - nazwa budynku
- location - lokalizacja  budynku
- numberOfFloors - liczb pięter 
- yearBuilt - rok zbudowwania
- floors - lista poziomów budynku, będących  obiektami klasy Floor
-
- Każdy atrybut posiada metody  get i set pobierające jak i ustawiają  jego wartości. 
-
- Pozostałe dostępne metody: 
- calculateArea - dla obiektów klasy Building sumuje powierzchnie pomieszczeń i zwraca ja jako double 
- calculateVolume - dla obiektów klasy Building sumuje objętość pomieszczeń i zwraca ja jako double 
- calculateLight - dla obiektów klasy Building sumuje oświetlenie pomieszczeń i zwraca ja jako double
+Klasa Building implementuje interfejs BuildingComponent.
+Klasa posiada atrybuty: nazwę, lokalizację, liczbę pięter, rok budowy oraz listę pięter.
+Klasa posiada metody dostępowe (gettery i settery) dla wszystkich atrybutów.
+Klasa posiada implementację metod interfejsu BuildingComponent: calculateArea(), calculateVolume(), calculateHeating(), calculateLight().
+Klasa posiada również metodę overusageOfHeating(double limit), która zwraca listę pokoi o przekroczonym limitie ogrzewania.
