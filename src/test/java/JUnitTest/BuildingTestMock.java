@@ -17,8 +17,9 @@ public class BuildingTestMock {
         Random rand = new Random();
         double rangeMin = 30.0, rangeMax = 300.0;
         double expected = 0.0;
+        int numberOfSamples = 10;
         
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<numberOfSamples; i++) {
             mockObjects.add(mock(Floor.class));
 
             double randomValue = rangeMin + (rangeMax - rangeMin) * rand.nextDouble();
@@ -27,16 +28,12 @@ public class BuildingTestMock {
         }
         
     
-        // Interakcja
         Building testedObject = new Building();
         testedObject.setFloors(mockObjects);
         double result = testedObject.calculateArea();
     
-        // Weryfikacja
-        // weryfikacja poprawności interakcji z obiektem zastępczym (Mockito)
-        verify(mockObjects.get(0)).calculateArea();
+        for (int i=0; i<numberOfSamples; i++) verify(mockObjects.get(i)).calculateArea();
         
-        // weryfikacja kodu testowanego (JUnit)
         assertEquals(expected, result);
     }
 }
