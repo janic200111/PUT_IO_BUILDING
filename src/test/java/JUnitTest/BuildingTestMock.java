@@ -11,7 +11,7 @@ import java.util.Random;
 public class BuildingTestMock {
 
     @Test
-    public void testTestedMethod() {
+    public void testCalculateArea() {
         List<Floor> mockObjects = new ArrayList<Floor>();
     
         Random rand = new Random();
