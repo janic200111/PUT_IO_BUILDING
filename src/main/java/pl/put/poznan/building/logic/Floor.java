@@ -1,5 +1,6 @@
 package pl.put.poznan.building.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Floor implements BuildingComponent{
@@ -65,15 +66,15 @@ public class Floor implements BuildingComponent{
 
     public List<Integer> getRoomsOverHeatingLimit(double limit){
 
-        List<Integer> rooms = null;
+        List<Integer> bad_rooms = new ArrayList<>();
 
         for (int i=0; i<rooms.size(); i++) {
             if(this.rooms.get(i).calculateHeating() > limit){
-                rooms.add(i);
+                bad_rooms.add(i);
             }
         }
 
-        return rooms;
+        return bad_rooms;
 
     }
 
