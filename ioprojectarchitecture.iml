@@ -29,7 +29,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/org.json.jar!/" />
+          <root url="jar://$MODULE_DIR$/../org.json.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
